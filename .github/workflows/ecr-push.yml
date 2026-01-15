@@ -18,7 +18,14 @@ jobs:
       # リポジトリのクローン
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
+      # Debug情報の出力
+      - name: Debug info
+        run: |
+          echo "AWS_REGION: ${{ secrets.AWS_REGION }}"
+          echo "ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}"
+          echo "IMAGE_TAG: ${{ secrets.IMAGE_TAG }}"
+        
       # AWS CLI のセットアップ
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
